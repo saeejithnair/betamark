@@ -16,6 +16,13 @@ pip install git+https://github.com/exobyte-labs/betamark.git -U
 
 For HackOS 1, the current code base uses train or dev datasets. For the final benchmarking near demo time, this repository will be updated to use validation datasets.
 
+### External Datasets of Interest:
+
+* Genomic Benchmarks (with dataset for OCR): [root GitHub repo](https://github.com/ML-Bioinfo-CEITEC/genomic_benchmarks), [OCR](https://github.com/ML-Bioinfo-CEITEC/genomic_benchmarks/tree/main/datasets/human_ocr_ensembl)
+* MS COCO: https://cocodataset.org/#home
+* MMLU: https://paperswithcode.com/dataset/mmlu
+
+
 ### TinyMMLU Eval
 
 ```python
