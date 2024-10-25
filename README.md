@@ -14,10 +14,10 @@ To update the installation:
 pip install git+https://github.com/exobyte-labs/betamark.git -U
 ```
 
-
-For HackOS 1, the current code base uses train or dev datasets. For the final benchmarking near demo time, this repository will be updated to use validation datasets. 
+For HackOS 1, the current code base uses train or dev datasets. For the final benchmarking near demo time, this repository will be updated to use validation datasets.
 
 ### TinyMMLU Eval
+
 ```python
 from betamark import tiny_mmlu
 
@@ -37,7 +37,7 @@ tiny_mmlu.run_eval(user_func=placeholder)
 
 ```
 
-### OCR Binary Classification 
+### OCR Binary Classification
 
 ```python
 from betamark import ocr
@@ -62,7 +62,7 @@ ocr.run_eval(user_func=placeholder)
 ### Bike Detection on MS Coco Subsample
 
 ```python
-from betamark import bike
+from betamark import bicycle
 
 def placeholder(x):
     """
@@ -72,10 +72,10 @@ def placeholder(x):
 
     Returns:
     --------
-    y_pred: int where 0 is negative (no bike) or 1 (there is a bike)
+    y_pred: int where 0 is negative (no bicycle) or 1 (there is a bicycle)
     """
     return 0
 
-bike.run_eval(user_func=placeholder)
+bicycle.run_eval(user_func=placeholder)
 
 ```

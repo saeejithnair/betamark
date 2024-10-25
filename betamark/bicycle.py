@@ -1,9 +1,9 @@
-# Note from Laurence: I removed a couple of entires after checking a few for bike presence/absence.
+# Note from Laurence: I removed a couple of entires after checking a few for BICYCLE presence/absence.
 
 import tqdm
 
 # # Train dataset
-LIST_OF_BIKES = [
+LIST_OF_BICYCLES = [
     "http://images.cocodataset.org/train2017/000000483108.jpg",
     "http://images.cocodataset.org/train2017/000000293802.jpg",
     "http://images.cocodataset.org/train2017/000000079841.jpg",
@@ -87,7 +87,7 @@ LIST_OF_BIKES = [
 ]
 
 
-LIST_OF_NON_BIKES = [
+LIST_OF_NON_BICYCLES = [
     "http://images.cocodataset.org/train2017/000000522418.jpg",
     "http://images.cocodataset.org/train2017/000000184613.jpg",
     "http://images.cocodataset.org/train2017/000000318219.jpg",
@@ -184,8 +184,8 @@ from io import BytesIO
 def run_eval(user_func) -> dict:
     correct_answers = 0
     total_answers = 0
-    for i in tqdm.trange(len(LIST_OF_BIKES)):
-        res = requests.get(LIST_OF_BIKES[i])
+    for i in tqdm.trange(len(LIST_OF_BICYCLES)):
+        res = requests.get(LIST_OF_BICYCLES[i])
         np_img = imageio.v2.imread(BytesIO(res.content))
         model_resp = user_func(np_img)
 
@@ -193,8 +193,8 @@ def run_eval(user_func) -> dict:
         if model_resp == 1:
             correct_answers += 1
 
-    for i in tqdm.trange(len(LIST_OF_NON_BIKES)):
-        res = requests.get(LIST_OF_NON_BIKES[i])
+    for i in tqdm.trange(len(LIST_OF_NON_BICYCLES)):
+        res = requests.get(LIST_OF_NON_BICYCLES[i])
         np_img = imageio.v2.imread(BytesIO(res.content))
         model_resp = user_func(np_img)
 
@@ -204,7 +204,3 @@ def run_eval(user_func) -> dict:
 
     acc = correct_answers / total_answers
     return {"acc": acc}
-
-
-tmp = lambda x: 0
-print(run_eval(tmp))
