@@ -5,4 +5,4 @@ def test_eval():
     def placeholder(x):
         return 0
 
-    ocr.eval(user_func=placeholder)
+    ocr.run_eval(user_func=placeholder)

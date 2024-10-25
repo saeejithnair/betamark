@@ -5,18 +5,18 @@ VERBOSE = False
 
 ds = datasets.load_dataset("katarinagresova/Genomic_Benchmarks_human_ocr_ensembl")
 
-test_subsample = ds["test"].shuffle(seed=42)[0:200]
+train_subsample = ds["train"].shuffle(seed=42)[0:200]
 
 if VERBOSE:
-    print(test_subsample)
+    print(train_subsample)
 
 
-def eval(user_func) -> dict:
+def run_eval(user_func) -> dict:
     correct_count = 0
     total_count = 0
-    for i in tqdm.trange(len(test_subsample)):
-        model_input = test_subsample["seq"][i]
-        ground_truth = test_subsample["label"][i]
+    for i in tqdm.trange(len(train_subsample)):
+        model_input = train_subsample["seq"][i]
+        ground_truth = train_subsample["label"][i]
         model_prediction = user_func(model_input)
         total_count += 1
         if ground_truth == model_prediction:

@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 datasets = "^3.0.2"
 tqdm = "^4.66.5"
+imageio = "^2.36.0"
 
 
 [build-system]

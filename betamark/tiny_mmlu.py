@@ -7,9 +7,9 @@ ds = datasets.load_dataset("tinyBenchmarks/tinyMMLU")
 
 if VERBOSE:
     print(ds)
-    print(ds["test"][0]["input_formatted"])
+    print(ds["dev"][0]["input_formatted"])
     print("----------")
-    print(ds["test"][0]["answer"])
+    print(ds["dev"][0]["answer"])
 
 
 def strip_model_resp(model_resp: str) -> str:
@@ -20,15 +20,14 @@ def strip_model_resp(model_resp: str) -> str:
     return model_resp
 
 
-def eval(user_func) -> dict:
-
+def run_eval(user_func) -> dict:
     answer_map = {"A": 0, "B": 1, "C": 2, "D": 3}
 
     correct_count = 0
     total = 0
-    for i in tqdm.trange(len(ds["test"])):
-        input_formtted = ds["test"][i]["input_formatted"]
-        ground_truth_answer = ds["test"][i]["answer"]
+    for i in tqdm.trange(len(ds["dev"])):
+        input_formtted = ds["dev"][i]["input_formatted"]
+        ground_truth_answer = ds["dev"][i]["answer"]
         predicted_answer = answer_map[strip_model_resp(user_func(input_formtted))]
         total += 1
         if ground_truth_answer == predicted_answer:
