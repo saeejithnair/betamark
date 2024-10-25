@@ -6,5 +6,3 @@ def test_eval():
         return "A"
 
     tiny_mmlu.eval(user_func=placeholder)
-    print(tiny_mmlu)
-    # assert True
