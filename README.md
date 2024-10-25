@@ -2,9 +2,18 @@
 
 An experimental benchmark meant for portability and finite compute.
 
-```
+### Installation Instructions
+
+```bash
 pip install git+https://github.com/exobyte-labs/betamark.git
 ```
+
+To update the installation:
+
+```bash
+pip install git+https://github.com/exobyte-labs/betamark.git -U
+```
+
 
 For HackOS 1, the current code base uses train or dev datasets. For the final benchmarking near demo time, this repository will be updated to use validation datasets. 
 
@@ -52,7 +61,7 @@ ocr.run_eval(user_func=placeholder)
 
 ### Bike Detection on MS Coco Subsample
 
-```
+```python
 from betamark import bike
 
 def placeholder(x):
